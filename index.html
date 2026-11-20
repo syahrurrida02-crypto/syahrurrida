@@ -4,6 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Portofolio</title>
+<link rel="icon" type="image/png" href="logowebsaya.png">
+<link rel="apple-touch-icon" href="logowebsaya.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=Literata:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
 <style>
@@ -22,8 +24,8 @@ header .w{display:flex;justify-content:space-between;align-items:center;gap:12px
 nav{display:flex;gap:4px;flex-wrap:wrap}
 nav a{text-decoration:none;padding:6px 12px;border-radius:99px;font-weight:500;font-size:.95rem}
 nav a.on{background:var(--papan);color:#fff}
-.hero{position:relative;overflow:hidden;background:linear-gradient(135deg,#061538,#0C2766 55%,#14439E);color:var(--kapur)}
-.hero:before,.hero:after{content:"";position:absolute;border-radius:50%;filter:blur(70px);pointer-events:none}
+.hero{position:relative;overflow:hidden;background:radial-gradient(rgba(255,255,255,.10) 1px,transparent 1.6px) 0 0/22px 22px,linear-gradient(135deg,#061538,#0C2766 55%,#14439E);color:var(--kapur)}
+.hero:before,.hero:after{content:"";position:absolute;border-radius:50%;filter:blur(70px);pointer-events:none;animation:drift 14s ease-in-out infinite alternate}
 .hero:before{width:420px;height:420px;left:-120px;top:-140px;background:rgba(80,140,255,.45)}
 .hero:after{width:380px;height:380px;right:-80px;bottom:-140px;background:rgba(242,184,75,.30)}
 .hero .w{position:relative;z-index:1;display:grid;grid-template-columns:1.5fr 1fr;gap:48px;align-items:center;padding-top:72px;padding-bottom:72px}
@@ -80,10 +82,29 @@ table{width:100%;border-collapse:collapse;font-size:.95rem}td{padding:10px 8px;b
 #ld line{stroke:var(--pensil);stroke-width:4;stroke-linecap:round;stroke-dasharray:100;stroke-dashoffset:100;animation:tulis 1.9s ease-in-out infinite}
 #ld line:nth-child(2){animation-delay:.25s}#ld line:nth-child(3){animation-delay:.5s}
 @keyframes tulis{0%{stroke-dashoffset:100}45%,75%{stroke-dashoffset:0}100%{stroke-dashoffset:-100}}
+@keyframes drift{to{transform:translate(70px,50px) scale(1.2)}}
 @keyframes masuk{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
 .hero .w>div>*,.hero .foto{animation:masuk .8s cubic-bezier(.2,.7,.2,1) .3s both}
 .hero .w>div>:nth-child(2){animation-delay:.4s}.hero .w>div>:nth-child(3){animation-delay:.5s}.hero .w>div>:nth-child(n+4){animation-delay:.6s}.hero .foto{animation-delay:.5s}
-@media(max-width:720px){.hero .w,.two{grid-template-columns:1fr;gap:32px}.hero .w{padding-top:48px;padding-bottom:48px}}
+footer{text-align:center}
+.soc{display:flex;gap:10px;flex-wrap:wrap}
+.soc a{width:44px;height:44px;border-radius:50%;display:grid;place-items:center;background:var(--kaca);border:1px solid var(--tepi);backdrop-filter:blur(12px);color:var(--papan);transition:background .2s,color .2s}
+.soc a:hover{background:var(--papan);color:#fff}.soc svg{width:20px;height:20px}
+.cf .r2{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px}.cf label{margin-bottom:12px}
+.car{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;scrollbar-width:none}
+.car::-webkit-scrollbar{display:none}
+.car figure{flex:0 0 min(340px,80%);scroll-snap-align:start;cursor:zoom-in}
+.car img{display:block;width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:16px;border:1px solid var(--tepi)}
+.car figcaption{font-size:.9rem;padding-top:6px}
+.lg{min-height:100vh;display:grid;place-items:center;padding:20px;position:relative;overflow:hidden;background:radial-gradient(rgba(255,255,255,.08) 1px,transparent 1.6px) 0 0/22px 22px,linear-gradient(135deg,#061538,#0C2766 55%,#14439E)}
+.lg:before,.lg:after{content:"";position:absolute;border-radius:50%;filter:blur(70px);animation:drift 14s ease-in-out infinite alternate}
+.lg:before{width:420px;height:420px;left:-100px;top:-120px;background:rgba(80,140,255,.45)}
+.lg:after{width:380px;height:380px;right:-80px;bottom:-120px;background:rgba(242,184,75,.30)}
+.lgc{position:relative;z-index:1;width:min(400px,100%);padding:36px 32px;border-radius:26px;text-align:center;color:var(--kapur);background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.3);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);box-shadow:0 30px 80px rgba(0,0,0,.4)}
+.lgc h2{color:#fff;margin:12px 0 4px;font-size:1.8rem}.lgc .meta{color:#B8C7EA;margin-bottom:22px}
+.lgc label{text-align:left}.lgc .err{color:#FFB4AB}
+.lgl{width:64px;height:64px;object-fit:contain;border-radius:16px}
+@media(max-width:720px){.cf .r2{grid-template-columns:1fr}.hero .w,.two{grid-template-columns:1fr;gap:32px}.hero .w{padding-top:48px;padding-bottom:48px}}
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 </style>
 </head>
@@ -103,7 +124,10 @@ const tgl = d => d ? new Date(d).toLocaleDateString('id-ID',{day:'numeric',month
 const GET = q => fetch(API_URL + '?' + new URLSearchParams(q)).then(r => r.json());
 const POST = b => fetch(API_URL, {method:'POST', body: JSON.stringify(b)}).then(r => r.json());
 const slug = s => s.toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'');
-let D;
+const IC = {email:'<rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/>',wa:'<path d="M3 21l1.6-4.7A8.5 8.5 0 1 1 8 19.5z"/><path d="M9 9c0 3.5 2.5 6 6 6l1-1.5-2-1-1 .8c-.8-.4-1.6-1.2-2-2l.8-1-1-2z"/>',ig:'<rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".6" fill="currentColor"/>',gh:'<path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.4 5.4 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65S8.93 17.38 9 18v4"/><path d="M9 18c-4.51 2-5-2-7-2"/>',in:'<path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/>'};
+const soc = s => [[s.email && 'mailto:' + s.email,'Email','email'],[s.whatsapp && 'https://wa.me/' + String(s.whatsapp).replace(/\D/g,''),'WhatsApp','wa'],[s.instagram,'Instagram','ig'],[s.github,'GitHub','gh'],[s.linkedin,'LinkedIn','in']].filter(x => x[0]).map(x => `<a href="${esc(safe(x[0]))}" target="_blank" rel="noopener" aria-label="${x[1]}" title="${x[1]}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${IC[x[2]]}</svg></a>`).join('');
+const gal = () => D.gallery.length ? `<div class="car">${D.gallery.map(g => `<figure data-src="${esc(safe(g.gambar))}">${img(g.gambar,g.judul)}<figcaption><strong>${esc(g.judul)}</strong><br><span class="meta">${esc(tgl(g.tanggal))}</span></figcaption></figure>`).join('')}</div>` : empty('Belum ada foto.');
+let D, tm;
 
 function md(src) {
   const inl = s => s.replace(/!\[([^\]]*)\]\((https?:[^)\s]+)\)/g,'<img src="$2" alt="$1" loading="lazy">')
@@ -139,18 +163,16 @@ function hero() {
 const V = {
   '': () => hero()
     + sec('Portofolio', `<div class="grid">${portos().slice(0,3).map(pCard).join('')||empty('Belum ada proyek.')}</div>`, 'portofolio')
-    + sec('Tulisan terbaru', `<div class="grid">${D.posts.slice(0,3).map(bCard).join('')||empty('Belum ada tulisan.')}</div>`, 'blog'),
+    + sec('Tulisan terbaru', `<div class="grid">${D.posts.slice(0,3).map(bCard).join('')||empty('Belum ada tulisan.')}</div>`, 'blog')
+    + sec('Galeri Kegiatan', gal(), 'galeri') + V.kontak(),
   portofolio: () => {
     const k = [...new Set(portos().map(x => x.kategori).filter(Boolean))];
     return sec('Portofolio', `<div class="chips" id="chips"><button class="on" data-k="">Semua</button>${k.map(x=>`<button data-k="${esc(x)}">${esc(x)}</button>`).join('')}</div><div class="grid" id="pg">${portos().map(pCard).join('')||empty('Belum ada proyek.')}</div>`);
   },
   blog: () => sec('Blog', `<div class="grid">${D.posts.map(bCard).join('')||empty('Belum ada tulisan.')}</div>`),
-  galeri: () => sec('Galeri Kegiatan', `<div class="gal">${D.gallery.map(g=>`<figure data-src="${esc(safe(g.gambar))}">${img(g.gambar,g.judul)}<figcaption><strong>${esc(g.judul)}</strong><br><span class="meta">${esc(tgl(g.tanggal))}</span></figcaption></figure>`).join('')||empty('Belum ada foto.')}</div>`),
-  kontak: () => {
-    const s = D.settings, L = (u, t) => u ? `<li><a href="${esc(safe(u))}" target="_blank" rel="noopener">${t}</a></li>` : '';
-    return sec('Kontak', `<div class="two"><div><p>Kirim pesan untuk kolaborasi, undangan mengisi pelatihan, atau pertanyaan lain.</p><ul style="margin-top:16px;padding-left:1.2em">${L(s.email&&'mailto:'+s.email,esc(s.email))}${L(s.whatsapp&&'https://wa.me/'+String(s.whatsapp).replace(/\D/g,''),'WhatsApp')}${L(s.instagram,'Instagram')}${L(s.github,'GitHub')}${L(s.linkedin,'LinkedIn')}</ul></div>
-    <form id="cf"><p><label>Nama<input name="nama" required maxlength="100"></label></p><p><label>Email<input name="email" type="email" required maxlength="100"></label></p><p><label>Pesan<textarea name="pesan" rows="5" required maxlength="3000"></textarea></label></p><input class="hp" name="website" tabindex="-1" autocomplete="off" aria-hidden="true"><p id="cm" role="status"></p><button class="btn">Kirim pesan</button></form></div>`);
-  }
+  galeri: () => sec('Galeri Kegiatan', gal()),
+  kontak: () => sec('Kontak', `<div class="two"><div><p>Kirim pesan untuk kolaborasi, undangan mengisi pelatihan, atau pertanyaan lain.</p><div class="soc" style="margin-top:16px">${soc(D.settings)}</div></div>
+    <form id="cf" class="cf"><div class="r2"><label>Nama<input name="nama" required maxlength="100"></label><label>Email<input name="email" type="email" required maxlength="100"></label></div><label>Pesan<textarea name="pesan" rows="3" required maxlength="3000"></textarea></label><input class="hp" name="website" tabindex="-1" autocomplete="off" aria-hidden="true"><p id="cm" role="status"></p><button class="btn">Kirim pesan</button></form></div>`)
 };
 
 async function showPost(slugName) {
@@ -163,7 +185,7 @@ async function showPost(slugName) {
 async function route() {
   const [p = '', s] = location.hash.slice(2).split('/');
   document.querySelectorAll('#nav a').forEach(a => a.classList.toggle('on', a.getAttribute('href') == '#/' + p));
-  scrollTo(0, 0);
+  scrollTo(0, 0); clearInterval(tm);
   if (!D) {
         D = API_URL ? await GET({action:'bootstrap'}).catch(() => null) : DEMO;
     $('#ld').classList.add('off');
@@ -174,7 +196,9 @@ async function route() {
   document.title = (NAV.find(n => n[0] == p)?.[1] || 'Beranda') + ' | ' + (D.settings.nama || 'Portofolio');
   if (p == 'blog' && s) return showPost(s);
   A.innerHTML = (V[p] || V[''])();
-  if (p == 'kontak') $('#cf').onsubmit = async e => {
+  const car = $('.car');
+  if (car && car.children.length > 1) tm = setInterval(() => { if (car.matches(':hover')) return; car.scrollLeft + car.clientWidth >= car.scrollWidth - 4 ? car.scrollTo({left: 0}) : car.scrollBy({left: car.children[0].offsetWidth + 16}); }, 4000);
+  if ($('#cf')) $('#cf').onsubmit = async e => {
     e.preventDefault(); const f = e.target, m = $('#cm'); m.className = ''; m.textContent = 'Mengirim…';
     const r = await POST({action:'contact', ...Object.fromEntries(new FormData(f))}).catch(() => ({error:'Gagal terhubung ke server.'}));
     m.className = r.ok ? 'ok' : 'err'; m.textContent = r.ok ? 'Pesan terkirim. Terima kasih.' : r.error; if (r.ok) f.reset();
@@ -195,8 +219,8 @@ const FD = {
   Galeri: [['judul','Judul kegiatan'],['tanggal','Tanggal','date'],['gambar','Foto','img'],['deskripsi','Keterangan','area']],
   Profil: [['nama','Nama'],['tagline','Tagline'],['bio','Bio','area'],['foto','Foto profil','img'],['email','Email'],['whatsapp','WhatsApp (format 628…)'],['instagram','URL Instagram'],['github','URL GitHub'],['linkedin','URL LinkedIn']]
 };
-let tab = 'Portofolio', edit = null, R = [];
-const adm = async b => { const r = await POST({...b, token: sessionStorage.tk}).catch(() => ({error:'Gagal terhubung ke server.'})); if (r.expired) { sessionStorage.removeItem('tk'); cms(); } return r; };
+let tab = 'Portofolio', edit = null, R = [], C = null;
+const adm = async b => { const r = await POST({...b, token: sessionStorage.tk}).catch(() => ({error:'Gagal terhubung ke server.'})); if (r.expired) { sessionStorage.removeItem('tk'); C = null; cms(); } return r; };
 const field = ([k, l, t], v = '') => `<p><label>${l}${t=='area'||t=='big' ? `<textarea data-k="${k}" rows="${t=='big'?16:4}">${esc(v)}</textarea>`
   : t=='sel' ? `<select data-k="${k}">${['Draft','Terbit'].map(o=>`<option${o==v?' selected':''}>${o}</option>`).join('')}</select>`
   : t=='img' ? `<input data-k="${k}" value="${esc(v)}" placeholder="https://… atau unggah file"><input type="file" accept="image/*" data-up="${k}"><span class="meta"></span>`
@@ -208,34 +232,40 @@ async function upload(file) {
   const png = file.type == 'image/png', mt = png ? 'image/png' : 'image/jpeg';
   return adm({action:'upload', name: file.name.replace(/\.\w+$/, '') + (png ? '.png' : '.jpg'), mime: mt, data: c.toDataURL(mt, .85).split(',')[1]});
 }
-function cms() {
+async function cms() {
   document.body.classList.add('cms'); document.title = 'CMS'; $('#ld').classList.add('off');
   if (!sessionStorage.tk) {
-    A.innerHTML = `<div class="w" style="max-width:420px;padding-top:80px"><h2>Masuk CMS</h2><form id="lf"><p><label>Username<input name="u" required autocomplete="username"></label></p><p><label>Password<input name="p" type="password" required autocomplete="current-password"></label></p><p class="err" id="le"></p><button class="btn">Masuk</button></form></div>`;
+    A.innerHTML = `<div class="lg"><form id="lf" class="lgc"><img class="lgl" src="logowebsaya.png" alt="" onerror="this.remove()"><h2>Masuk CMS</h2><p class="meta">Kelola portofolio, blog, dan galeri Anda.</p><p><label>Username<input name="u" required autocomplete="username"></label></p><p><label>Password<input name="p" type="password" required autocomplete="current-password"></label></p><p class="err" id="le" role="alert"></p><button class="btn" style="width:100%;margin:0">Masuk</button></form></div>`;
     $('#lf').onsubmit = async e => { e.preventDefault(); const f = e.target; const r = await POST({action:'login', username: f.u.value, password: f.p.value}).catch(() => ({error:'Gagal terhubung ke server.'})); if (r.ok) { sessionStorage.tk = r.token; cms(); } else $('#le').textContent = r.error; };
     return;
   }
+  if (!C) {
+    A.innerHTML = '<div class="lg"><div class="lgc">Memuat data CMS…</div></div>';
+    const n = ['Portofolio','Blog','Galeri','Pesan'], c = {};
+    const [st, ...ls] = await Promise.all([adm({action:'settings'}), ...n.map(t => adm({action:'list', sheet: t}))]);
+    if (!sessionStorage.tk) return;
+    n.forEach((t, i) => c[t] = ls[i].rows || []); c.Profil = st.settings || {}; C = c;
+  }
   A.innerHTML = `<div class="w"><div class="bar">${['Portofolio','Blog','Galeri','Pesan','Profil'].map(t=>`<button data-t="${t}" class="${t==tab?'on':''}">${t}</button>`).join('')}<span style="flex:1"></span><a href="./" class="meta">Lihat situs</a><button data-t="out">Keluar</button></div><div id="cb"></div></div>`;
-  A.querySelector('.bar').onclick = e => { const t = e.target.dataset.t; if (!t) return; if (t == 'out') { sessionStorage.removeItem('tk'); return cms(); } tab = t; edit = null; cms(); };
+  A.querySelector('.bar').onclick = e => { const t = e.target.dataset.t; if (!t) return; if (t == 'out') { sessionStorage.removeItem('tk'); C = null; return cms(); } tab = t; edit = null; cms(); };
   body();
 }
 async function body() {
-  const b = $('#cb'); b.textContent = 'Memuat…';
+  const b = $('#cb');
   if (tab == 'Profil') {
-    const r = await adm({action:'settings'}); if (!r.ok) return b.innerHTML = `<p class="err">${esc(r.error)}</p>`;
+    const r = {settings: C.Profil};
     b.innerHTML = `<form id="ef">${FD.Profil.map(f => field(f, r.settings[f[0]])).join('')}<p id="em" role="status"></p><button class="btn">Simpan profil</button></form>`;
   } else if (edit) {
     b.innerHTML = `<form id="ef"><h2>${edit.id ? 'Ubah' : 'Tambah'} ${tab}</h2>${FD[tab].map(f => field(f, edit[f[0]])).join('')}<p id="em" role="status"></p><button class="btn">Simpan</button><button type="button" class="btn o" id="bt">Batal</button></form>`;
     $('#bt').onclick = () => { edit = null; body(); };
   } else {
-    const r = await adm({action:'list', sheet: tab}); if (!r.ok) return b.innerHTML = `<p class="err">${esc(r.error)}</p>`;
-    R = r.rows;
+    R = C[tab];
     b.innerHTML = `${tab == 'Pesan' ? '' : '<button class="btn" id="add">Tambah</button>'}<table>${R.map((x, i) => `<tr><td><strong>${esc(x.judul || x.nama)}</strong><br><span class="meta">${esc(tab == 'Pesan' ? x.email + ' — ' + x.pesan : [x.status, x.kategori].filter(Boolean).join(' · '))}</span></td><td style="white-space:nowrap;text-align:right">${tab == 'Pesan' ? '' : `<button class="btn s" data-e="${i}">Ubah</button>`}<button class="btn s o" data-d="${i}">Hapus</button></td></tr>`).join('') || '<tr><td>Belum ada data.</td></tr>'}</table>`;
     if ($('#add')) $('#add').onclick = () => { edit = tab == 'Blog' ? {status:'Draft', tanggal: new Date().toISOString().slice(0,10)} : {}; body(); };
     b.onclick = async e => {
       const t = e.target;
       if (t.dataset.e) { edit = R[t.dataset.e]; body(); }
-      if (t.dataset.d && confirm('Hapus data ini?')) { await adm({action:'delete', sheet: tab, id: R[t.dataset.d].id}); body(); }
+      if (t.dataset.d && confirm('Hapus data ini?')) { await adm({action:'delete', sheet: tab, id: R[t.dataset.d].id}); C[tab] = (await adm({action:'list', sheet: tab})).rows || C[tab]; body(); }
     };
     return;
   }
@@ -250,7 +280,7 @@ async function body() {
     let r;
     if (tab == 'Profil') r = await adm({action:'saveSettings', data: o});
     else { const row = {...edit, ...o}; if (tab == 'Blog' && !row.slug) row.slug = slug(row.judul) + '-' + Math.random().toString(36).slice(2, 5); r = await adm({action:'save', sheet: tab, row}); }
-    if (r.ok) { edit = null; tab == 'Profil' ? ($('#em').textContent = 'Tersimpan.') : body(); } else $('#em').textContent = r.error;
+    if (r.ok) { edit = null; if (tab == 'Profil') { C.Profil = o; $('#em').textContent = 'Tersimpan.'; } else { C[tab] = (await adm({action:'list', sheet: tab})).rows || C[tab]; body(); } } else $('#em').textContent = r.error;
   };
 }
 
