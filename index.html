@@ -7,70 +7,88 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=Literata:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
 <style>
-:root{--kertas:#F4F7F5;--tinta:#18222B;--papan:#173B33;--kapur:#EAF1EC;--pensil:#F0B429;--garis:#D3DBD6;--abu:#5A6670;--h:'Bricolage Grotesque',system-ui,sans-serif;--b:'Literata',Georgia,serif}
+:root{--kertas:#EAF0FA;--tinta:#0E1A33;--papan:#0A1F4D;--kapur:#E8EEFB;--pensil:#F2B84B;--garis:rgba(10,31,77,.14);--abu:#52607A;--kaca:rgba(255,255,255,.58);--tepi:rgba(255,255,255,.75);--h:'Bricolage Grotesque',system-ui,sans-serif;--b:'Literata',Georgia,serif}
 *{box-sizing:border-box;margin:0}
-body{background:var(--kertas);color:var(--tinta);font:17px/1.65 var(--b)}
+body{background:var(--kertas);color:var(--tinta);font:17px/1.65 var(--b);min-height:100vh}
+body:before{content:"";position:fixed;inset:0;z-index:-1;background:radial-gradient(620px 420px at 8% 10%,rgba(46,98,214,.30),transparent 70%),radial-gradient(520px 420px at 94% 40%,rgba(10,31,77,.20),transparent 70%),radial-gradient(520px 420px at 25% 96%,rgba(242,184,75,.22),transparent 70%)}
 h1,h2,h3,.brand,nav a,button,.btn,label,.meta{font-family:var(--h)}
 a{color:inherit}
 :focus-visible{outline:3px solid var(--pensil);outline-offset:2px}
 .w{max-width:1080px;margin:0 auto;padding:0 20px}
-header{border-bottom:1px solid var(--garis);position:sticky;top:0;background:var(--kertas);z-index:5}
+header,footer,.bar{background:rgba(234,240,250,.62);backdrop-filter:blur(16px) saturate(1.5);-webkit-backdrop-filter:blur(16px) saturate(1.5)}
+header{border-bottom:1px solid var(--tepi);position:sticky;top:0;z-index:5}
 header .w{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;padding-top:12px;padding-bottom:12px}
-.brand{font-weight:800;font-size:1.15rem;text-decoration:none}
+.brand{font-weight:800;font-size:1.15rem;text-decoration:none;color:var(--papan)}
 nav{display:flex;gap:4px;flex-wrap:wrap}
-nav a{text-decoration:none;padding:6px 12px;border-radius:6px;font-weight:500;font-size:.95rem}
+nav a{text-decoration:none;padding:6px 12px;border-radius:99px;font-weight:500;font-size:.95rem}
 nav a.on{background:var(--papan);color:#fff}
-.hero{background:var(--papan) repeating-linear-gradient(0deg,transparent 0 39px,rgba(255,255,255,.07) 39px 40px);color:var(--kapur)}
-.hero .w{display:grid;grid-template-columns:1.5fr 1fr;gap:48px;align-items:center;padding-top:72px;padding-bottom:72px}
+.hero{position:relative;overflow:hidden;background:linear-gradient(135deg,#061538,#0C2766 55%,#14439E);color:var(--kapur)}
+.hero:before,.hero:after{content:"";position:absolute;border-radius:50%;filter:blur(70px);pointer-events:none}
+.hero:before{width:420px;height:420px;left:-120px;top:-140px;background:rgba(80,140,255,.45)}
+.hero:after{width:380px;height:380px;right:-80px;bottom:-140px;background:rgba(242,184,75,.30)}
+.hero .w{position:relative;z-index:1;display:grid;grid-template-columns:1.5fr 1fr;gap:48px;align-items:center;padding-top:72px;padding-bottom:72px}
 .hero h1{font-size:clamp(2.4rem,6vw,4.6rem);line-height:1.02;font-weight:800;letter-spacing:-.02em}
 .hero .tag{font:600 1.3rem var(--h);color:var(--pensil);margin-top:14px}
 .hero p.bio{margin:18px 0 26px;max-width:46ch;font-size:1.08rem}
-.foto{position:relative;margin:0 12px 12px 0}
-.foto:before{content:"";position:absolute;inset:0;border:3px solid var(--pensil);transform:translate(12px,12px)}
-.foto img,.foto .ph{position:relative;display:block;width:100%;aspect-ratio:4/5;object-fit:cover;background:#2A5A4F}
+.foto{position:relative;aspect-ratio:4/5;border-radius:26px;overflow:hidden;border:1px solid rgba(255,255,255,.5);background:rgba(255,255,255,.12);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);box-shadow:0 24px 60px rgba(0,0,0,.35),inset 0 1px 0 rgba(255,255,255,.55)}
+.foto .fbg{position:absolute;inset:-12%;background-size:cover;background-position:center;filter:blur(28px) saturate(1.6);opacity:.8}
+.foto img,.foto .ph{position:relative;display:block;width:100%;height:100%;object-fit:cover;object-position:center top}
 .ph{display:grid;place-items:center;font:800 6rem var(--h);color:var(--pensil)}
-.btn{display:inline-block;padding:10px 18px;border-radius:6px;background:var(--pensil);color:var(--tinta);font-weight:700;text-decoration:none;border:2px solid var(--pensil);cursor:pointer;font-size:1rem;margin:0 8px 8px 0}
-.btn.o{background:none;border-color:currentColor;color:inherit}
-.btn.s{padding:4px 10px;font-size:.85rem;margin:0 4px 0 0}
+.btn{display:inline-block;padding:10px 18px;border-radius:99px;background:var(--pensil);color:#0A1F4D;font-weight:700;text-decoration:none;border:2px solid var(--pensil);cursor:pointer;font-size:1rem;margin:0 8px 8px 0}
+.btn.o{background:rgba(255,255,255,.1);border-color:currentColor;color:inherit}
+.btn.s{padding:4px 12px;font-size:.85rem;margin:0 4px 0 0}
 section{padding:56px 0}
-h2{font-size:2rem;font-weight:800;letter-spacing:-.01em;margin-bottom:24px}
+h2{font-size:2rem;font-weight:800;letter-spacing:-.01em;margin-bottom:24px;color:var(--papan)}
 h2 small{font:500 1rem var(--h);margin-left:12px}
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:24px}
-.card{background:#fff;border:1px solid var(--garis);border-radius:6px;overflow:hidden;text-decoration:none;display:block}
+.card,.chips button,.bar{border:1px solid var(--tepi)}
+.card{background:var(--kaca);backdrop-filter:blur(14px) saturate(1.4);-webkit-backdrop-filter:blur(14px) saturate(1.4);box-shadow:0 8px 30px rgba(10,31,77,.10);border-radius:18px;overflow:hidden;text-decoration:none;display:block}
 .card img{display:block;width:100%;aspect-ratio:16/10;object-fit:cover;background:var(--garis)}
 .card>div{padding:16px}
 .card h3{font-size:1.15rem;line-height:1.25;margin:4px 0 6px}
 .card p{font-size:.95rem;color:var(--abu)}
 .meta{font-weight:500;font-size:.85rem;color:var(--abu)}
 .chips{margin-bottom:24px}
-.chips button{border:1px solid var(--garis);background:#fff;padding:6px 14px;border-radius:99px;cursor:pointer;margin:0 6px 6px 0;font-size:.9rem}
+.chips button{background:var(--kaca);padding:6px 14px;border-radius:99px;cursor:pointer;margin:0 6px 6px 0;font-size:.9rem}
 .chips button.on{background:var(--papan);color:#fff;border-color:var(--papan)}
 .post{max-width:68ch;margin:0 auto}
-.post h1{font:800 clamp(2rem,5vw,3rem)/1.1 var(--h);margin:8px 0 24px}
+.post h1{font:800 clamp(2rem,5vw,3rem)/1.1 var(--h);margin:8px 0 24px;color:var(--papan)}
 .isi>*{margin-bottom:1.1em}.isi h2,.isi h3,.isi h4{margin:1.6em 0 .5em;font-size:1.5rem}
-.isi img{max-width:100%;border-radius:6px}.isi blockquote{border-left:4px solid var(--pensil);padding-left:16px;color:var(--abu)}
+.isi img{max-width:100%;border-radius:12px}.isi blockquote{border-left:4px solid var(--pensil);padding-left:16px;color:var(--abu)}
 .isi ul,.isi ol{padding-left:1.4em}.isi code{background:var(--garis);padding:1px 5px;border-radius:4px}
 .gal{columns:3 220px;gap:16px}
 .gal figure{break-inside:avoid;margin-bottom:16px;cursor:zoom-in}
-.gal img{width:100%;display:block;border-radius:6px}
+.gal img{width:100%;display:block;border-radius:14px;border:1px solid var(--tepi)}
 .gal figcaption{font-size:.9rem;padding-top:6px}
 dialog{border:0;background:none;max-width:94vw;max-height:94vh}
-dialog::backdrop{background:rgba(0,0,0,.85)}
-dialog img{max-width:94vw;max-height:90vh;display:block}
+dialog::backdrop{background:rgba(6,21,56,.88)}
+dialog img{max-width:94vw;max-height:90vh;display:block;border-radius:12px}
 .two{display:grid;grid-template-columns:1fr 1fr;gap:48px}
 label{display:block;font-weight:600;font-size:.9rem}
-input,textarea,select{width:100%;padding:10px;border:1px solid var(--garis);border-radius:6px;font:inherit;background:#fff;margin-top:4px}
+input,textarea,select{width:100%;padding:10px 12px;border:1px solid var(--tepi);border-radius:12px;font:inherit;background:rgba(255,255,255,.7);margin-top:4px;backdrop-filter:blur(8px)}
 form p{margin-bottom:14px}.hp{position:absolute;left:-999px}
 .err{color:#B3261E}.ok{color:#1B6B3A}
-footer{border-top:1px solid var(--garis);padding:28px 0;font-size:.9rem;color:var(--abu)}
+footer{border-top:1px solid var(--tepi);padding:28px 0;font-size:.9rem;color:var(--abu)}
 .cms header,.cms footer{display:none}
-.bar{display:flex;gap:6px;flex-wrap:wrap;align-items:center;padding:16px 0;border-bottom:1px solid var(--garis);margin-bottom:24px}
-.bar button{border:0;background:none;padding:6px 12px;border-radius:6px;cursor:pointer;font-size:.95rem}.bar button.on{background:var(--papan);color:#fff}
+.bar{display:flex;gap:6px;flex-wrap:wrap;align-items:center;padding:12px 16px;border-radius:16px;margin:16px 0 24px}
+.bar button{border:0;background:none;padding:6px 14px;border-radius:99px;cursor:pointer;font-size:.95rem}.bar button.on{background:var(--papan);color:#fff}
 table{width:100%;border-collapse:collapse;font-size:.95rem}td{padding:10px 8px;border-bottom:1px solid var(--garis);vertical-align:top}
+#ld{position:fixed;inset:0;z-index:50;display:grid;place-items:center;background:linear-gradient(135deg,#061538,#0C2766 60%,#14439E);transition:opacity .6s,visibility .6s}
+#ld.off{opacity:0;visibility:hidden}
+#ld .box{padding:28px 40px;border-radius:22px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.28);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);text-align:center;color:var(--kapur);font:500 .95rem var(--h)}
+#ld svg{display:block;margin:0 auto 14px;width:120px}
+#ld line{stroke:var(--pensil);stroke-width:4;stroke-linecap:round;stroke-dasharray:100;stroke-dashoffset:100;animation:tulis 1.9s ease-in-out infinite}
+#ld line:nth-child(2){animation-delay:.25s}#ld line:nth-child(3){animation-delay:.5s}
+@keyframes tulis{0%{stroke-dashoffset:100}45%,75%{stroke-dashoffset:0}100%{stroke-dashoffset:-100}}
+@keyframes masuk{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
+.hero .w>div>*,.hero .foto{animation:masuk .8s cubic-bezier(.2,.7,.2,1) .3s both}
+.hero .w>div>:nth-child(2){animation-delay:.4s}.hero .w>div>:nth-child(3){animation-delay:.5s}.hero .w>div>:nth-child(n+4){animation-delay:.6s}.hero .foto{animation-delay:.5s}
 @media(max-width:720px){.hero .w,.two{grid-template-columns:1fr;gap:32px}.hero .w{padding-top:48px;padding-bottom:48px}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 </style>
 </head>
 <body>
+<div id="ld" role="status" aria-label="Memuat"><div class="box"><svg viewBox="0 0 120 50" aria-hidden="true"><line x1="10" y1="10" x2="110" y2="10" pathLength="100"/><line x1="10" y1="25" x2="110" y2="25" pathLength="100"/><line x1="10" y1="40" x2="80" y2="40" pathLength="100"/></svg>Memuat data…</div></div>
 <header><div class="w"><a class="brand" href="#/" id="brand">Portofolio</a><nav id="nav"></nav></div></header>
 <main id="app"></main>
 <footer><div class="w" id="foot"></div></footer>
@@ -116,7 +134,7 @@ const portos = () => [...D.portfolio].reverse();
 
 function hero() {
   const s = D.settings;
-  return `<div class="hero"><div class="w"><div><h1>${esc(s.nama)}</h1><div class="tag">${esc(s.tagline)}</div><p class="bio">${esc(s.bio)}</p><a class="btn" href="#/portofolio">Lihat portofolio</a><a class="btn o" href="#/blog">Baca blog</a></div><div class="foto">${s.foto?img(s.foto,s.nama):`<div class="ph">${esc((s.nama||'?')[0])}</div>`}</div></div></div>`;
+  return `<div class="hero"><div class="w"><div><h1>${esc(s.nama)}</h1><div class="tag">${esc(s.tagline)}</div><p class="bio">${esc(s.bio)}</p><a class="btn" href="#/portofolio">Lihat portofolio</a><a class="btn o" href="#/blog">Baca blog</a></div><div class="foto">${s.foto?`<div class="fbg" style="background-image:url('${esc(safe(s.foto))}')"></div>`+img(s.foto,s.nama):`<div class="ph">${esc((s.nama||'?')[0])}</div>`}</div></div></div>`;
 }
 const V = {
   '': () => hero()
@@ -147,8 +165,8 @@ async function route() {
   document.querySelectorAll('#nav a').forEach(a => a.classList.toggle('on', a.getAttribute('href') == '#/' + p));
   scrollTo(0, 0);
   if (!D) {
-    A.innerHTML = '<div class="w"><p class="meta" style="padding:80px 0">Memuat…</p></div>';
-    D = API_URL ? await GET({action:'bootstrap'}).catch(() => null) : DEMO;
+        D = API_URL ? await GET({action:'bootstrap'}).catch(() => null) : DEMO;
+    $('#ld').classList.add('off');
     if (!D || D.ok === 0) { D = null; return A.innerHTML = '<div class="w"><p class="err" style="padding:80px 0">Data tidak bisa dimuat. Periksa API_URL dan deployment Apps Script.</p></div>'; }
     $('#brand').textContent = D.settings.nama || 'Portofolio';
     $('#foot').textContent = `© ${new Date().getFullYear()} ${D.settings.nama || ''}`;
@@ -187,10 +205,11 @@ const field = ([k, l, t], v = '') => `<p><label>${l}${t=='area'||t=='big' ? `<te
 async function upload(file) {
   const bmp = await createImageBitmap(file), s = Math.min(1, 1600 / Math.max(bmp.width, bmp.height)), c = document.createElement('canvas');
   c.width = bmp.width * s; c.height = bmp.height * s; c.getContext('2d').drawImage(bmp, 0, 0, c.width, c.height);
-  return adm({action:'upload', name: file.name.replace(/\.\w+$/, '') + '.jpg', mime:'image/jpeg', data: c.toDataURL('image/jpeg', .85).split(',')[1]});
+  const png = file.type == 'image/png', mt = png ? 'image/png' : 'image/jpeg';
+  return adm({action:'upload', name: file.name.replace(/\.\w+$/, '') + (png ? '.png' : '.jpg'), mime: mt, data: c.toDataURL(mt, .85).split(',')[1]});
 }
 function cms() {
-  document.body.classList.add('cms'); document.title = 'CMS';
+  document.body.classList.add('cms'); document.title = 'CMS'; $('#ld').classList.add('off');
   if (!sessionStorage.tk) {
     A.innerHTML = `<div class="w" style="max-width:420px;padding-top:80px"><h2>Masuk CMS</h2><form id="lf"><p><label>Username<input name="u" required autocomplete="username"></label></p><p><label>Password<input name="p" type="password" required autocomplete="current-password"></label></p><p class="err" id="le"></p><button class="btn">Masuk</button></form></div>`;
     $('#lf').onsubmit = async e => { e.preventDefault(); const f = e.target; const r = await POST({action:'login', username: f.u.value, password: f.p.value}).catch(() => ({error:'Gagal terhubung ke server.'})); if (r.ok) { sessionStorage.tk = r.token; cms(); } else $('#le').textContent = r.error; };
