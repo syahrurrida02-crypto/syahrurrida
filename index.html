@@ -1,26 +1,242 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>SyahrurRida</title>
-    <link rel="icon" type="image/png" href="logowebsaya.png">
-    <meta name="description" content="Pendidikan Era Baru: Cerdas Bersama Teknologi">
-    <meta name="robots" content="noindex, nofollow">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://www.syahrurrida.online/">
-    <meta property="og:title" content="SyahrurRida">
-    <style>
-        body, html { margin: 0; padding: 0; height: 100%; overflow: hidden; background-color: #ffffff; }
-        iframe { border: none; width: 100%; height: 100%; }
-    </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Portofolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=Literata:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+:root{--kertas:#F4F7F5;--tinta:#18222B;--papan:#173B33;--kapur:#EAF1EC;--pensil:#F0B429;--garis:#D3DBD6;--abu:#5A6670;--h:'Bricolage Grotesque',system-ui,sans-serif;--b:'Literata',Georgia,serif}
+*{box-sizing:border-box;margin:0}
+body{background:var(--kertas);color:var(--tinta);font:17px/1.65 var(--b)}
+h1,h2,h3,.brand,nav a,button,.btn,label,.meta{font-family:var(--h)}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--pensil);outline-offset:2px}
+.w{max-width:1080px;margin:0 auto;padding:0 20px}
+header{border-bottom:1px solid var(--garis);position:sticky;top:0;background:var(--kertas);z-index:5}
+header .w{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;padding-top:12px;padding-bottom:12px}
+.brand{font-weight:800;font-size:1.15rem;text-decoration:none}
+nav{display:flex;gap:4px;flex-wrap:wrap}
+nav a{text-decoration:none;padding:6px 12px;border-radius:6px;font-weight:500;font-size:.95rem}
+nav a.on{background:var(--papan);color:#fff}
+.hero{background:var(--papan) repeating-linear-gradient(0deg,transparent 0 39px,rgba(255,255,255,.07) 39px 40px);color:var(--kapur)}
+.hero .w{display:grid;grid-template-columns:1.5fr 1fr;gap:48px;align-items:center;padding-top:72px;padding-bottom:72px}
+.hero h1{font-size:clamp(2.4rem,6vw,4.6rem);line-height:1.02;font-weight:800;letter-spacing:-.02em}
+.hero .tag{font:600 1.3rem var(--h);color:var(--pensil);margin-top:14px}
+.hero p.bio{margin:18px 0 26px;max-width:46ch;font-size:1.08rem}
+.foto{position:relative;margin:0 12px 12px 0}
+.foto:before{content:"";position:absolute;inset:0;border:3px solid var(--pensil);transform:translate(12px,12px)}
+.foto img,.foto .ph{position:relative;display:block;width:100%;aspect-ratio:4/5;object-fit:cover;background:#2A5A4F}
+.ph{display:grid;place-items:center;font:800 6rem var(--h);color:var(--pensil)}
+.btn{display:inline-block;padding:10px 18px;border-radius:6px;background:var(--pensil);color:var(--tinta);font-weight:700;text-decoration:none;border:2px solid var(--pensil);cursor:pointer;font-size:1rem;margin:0 8px 8px 0}
+.btn.o{background:none;border-color:currentColor;color:inherit}
+.btn.s{padding:4px 10px;font-size:.85rem;margin:0 4px 0 0}
+section{padding:56px 0}
+h2{font-size:2rem;font-weight:800;letter-spacing:-.01em;margin-bottom:24px}
+h2 small{font:500 1rem var(--h);margin-left:12px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:24px}
+.card{background:#fff;border:1px solid var(--garis);border-radius:6px;overflow:hidden;text-decoration:none;display:block}
+.card img{display:block;width:100%;aspect-ratio:16/10;object-fit:cover;background:var(--garis)}
+.card>div{padding:16px}
+.card h3{font-size:1.15rem;line-height:1.25;margin:4px 0 6px}
+.card p{font-size:.95rem;color:var(--abu)}
+.meta{font-weight:500;font-size:.85rem;color:var(--abu)}
+.chips{margin-bottom:24px}
+.chips button{border:1px solid var(--garis);background:#fff;padding:6px 14px;border-radius:99px;cursor:pointer;margin:0 6px 6px 0;font-size:.9rem}
+.chips button.on{background:var(--papan);color:#fff;border-color:var(--papan)}
+.post{max-width:68ch;margin:0 auto}
+.post h1{font:800 clamp(2rem,5vw,3rem)/1.1 var(--h);margin:8px 0 24px}
+.isi>*{margin-bottom:1.1em}.isi h2,.isi h3,.isi h4{margin:1.6em 0 .5em;font-size:1.5rem}
+.isi img{max-width:100%;border-radius:6px}.isi blockquote{border-left:4px solid var(--pensil);padding-left:16px;color:var(--abu)}
+.isi ul,.isi ol{padding-left:1.4em}.isi code{background:var(--garis);padding:1px 5px;border-radius:4px}
+.gal{columns:3 220px;gap:16px}
+.gal figure{break-inside:avoid;margin-bottom:16px;cursor:zoom-in}
+.gal img{width:100%;display:block;border-radius:6px}
+.gal figcaption{font-size:.9rem;padding-top:6px}
+dialog{border:0;background:none;max-width:94vw;max-height:94vh}
+dialog::backdrop{background:rgba(0,0,0,.85)}
+dialog img{max-width:94vw;max-height:90vh;display:block}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:48px}
+label{display:block;font-weight:600;font-size:.9rem}
+input,textarea,select{width:100%;padding:10px;border:1px solid var(--garis);border-radius:6px;font:inherit;background:#fff;margin-top:4px}
+form p{margin-bottom:14px}.hp{position:absolute;left:-999px}
+.err{color:#B3261E}.ok{color:#1B6B3A}
+footer{border-top:1px solid var(--garis);padding:28px 0;font-size:.9rem;color:var(--abu)}
+.cms header,.cms footer{display:none}
+.bar{display:flex;gap:6px;flex-wrap:wrap;align-items:center;padding:16px 0;border-bottom:1px solid var(--garis);margin-bottom:24px}
+.bar button{border:0;background:none;padding:6px 12px;border-radius:6px;cursor:pointer;font-size:.95rem}.bar button.on{background:var(--papan);color:#fff}
+table{width:100%;border-collapse:collapse;font-size:.95rem}td{padding:10px 8px;border-bottom:1px solid var(--garis);vertical-align:top}
+@media(max-width:720px){.hero .w,.two{grid-template-columns:1fr;gap:32px}.hero .w{padding-top:48px;padding-bottom:48px}}
+</style>
 </head>
 <body>
-    <script>
-        const TARGET_URL = "https://script.google.com/macros/s/AKfycbwhKYKULtkwTDv4bs5aLCVqnxWzxjNWomPsaKKwnKrZVBKB1UBp1ZJ_UmzUMMNtyuFMCQ/exec";
+<header><div class="w"><a class="brand" href="#/" id="brand">Portofolio</a><nav id="nav"></nav></div></header>
+<main id="app"></main>
+<footer><div class="w" id="foot"></div></footer>
+<dialog id="lb"><img alt=""></dialog>
+<script>
+const API_URL = ''; // Tempel URL Web App Apps Script (…/exec) di sini
+const DEMO = {settings:{nama:'Nama Anda',tagline:'Guru, kepala sekolah, dan praktisi AI',bio:'Isi API_URL di index.html agar data tampil dari Google Sheets.'},portfolio:[],posts:[],gallery:[]};
+const $ = s => document.querySelector(s), A = $('#app');
+const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const safe = u => /^(https?:|mailto:)/i.test(u) ? u : '#';
+const tgl = d => d ? new Date(d).toLocaleDateString('id-ID',{day:'numeric',month:'long',year:'numeric'}) : '';
+const GET = q => fetch(API_URL + '?' + new URLSearchParams(q)).then(r => r.json());
+const POST = b => fetch(API_URL, {method:'POST', body: JSON.stringify(b)}).then(r => r.json());
+const slug = s => s.toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'');
+let D;
 
-        document.write('<iframe id="app-frame" src="' + TARGET_URL + '"></iframe>');
-    </script>
+function md(src) {
+  const inl = s => s.replace(/!\[([^\]]*)\]\((https?:[^)\s]+)\)/g,'<img src="$2" alt="$1" loading="lazy">')
+    .replace(/\[([^\]]+)\]\((https?:[^)\s]+)\)/g,'<a href="$2" target="_blank" rel="noopener">$1</a>')
+    .replace(/\*\*(.+?)\*\*/g,'<strong>$1</strong>').replace(/\*(.+?)\*/g,'<em>$1</em>').replace(/`(.+?)`/g,'<code>$1</code>');
+  let h = '', list = '';
+  const close = () => { if (list) { h += `</${list}>`; list = ''; } };
+  for (const l of esc(src).split(/\r?\n/)) {
+    let m;
+    if (m = l.match(/^(#{1,3}) (.+)/)) { close(); const n = m[1].length + 1; h += `<h${n}>${inl(m[2])}</h${n}>`; }
+    else if (m = l.match(/^[-*] (.+)/)) { if (list != 'ul') { close(); h += '<ul>'; list = 'ul'; } h += `<li>${inl(m[1])}</li>`; }
+    else if (m = l.match(/^\d+\. (.+)/)) { if (list != 'ol') { close(); h += '<ol>'; list = 'ol'; } h += `<li>${inl(m[1])}</li>`; }
+    else if (m = l.match(/^&gt; (.+)/)) { close(); h += `<blockquote>${inl(m[1])}</blockquote>`; }
+    else if (l.trim()) { close(); h += `<p>${inl(l)}</p>`; }
+    else close();
+  }
+  close(); return h;
+}
+
+/* ---------- Halaman publik ---------- */
+const NAV = [['','Beranda'],['portofolio','Portofolio'],['blog','Blog'],['galeri','Galeri Kegiatan'],['kontak','Kontak']];
+const img = (u, a = '') => u ? `<img src="${esc(safe(u))}" alt="${esc(a)}" loading="lazy">` : '';
+const pCard = x => `<${x.tautan?'a':'div'} class="card" ${x.tautan?`href="${esc(safe(x.tautan))}" target="_blank" rel="noopener"`:''}>${img(x.gambar,x.judul)}<div><span class="meta">${esc([x.kategori,x.tahun].filter(Boolean).join(', '))}</span><h3>${esc(x.judul)}</h3><p>${esc(x.deskripsi)}</p></div></${x.tautan?'a':'div'}>`;
+const bCard = p => `<a class="card" href="#/blog/${esc(p.slug)}">${img(p.gambar,p.judul)}<div><span class="meta">${esc(tgl(p.tanggal))}${p.kategori?' · '+esc(p.kategori):''}</span><h3>${esc(p.judul)}</h3><p>${esc(p.ringkasan)}</p></div></a>`;
+const sec = (t, body, more) => `<section><div class="w"><h2>${t}${more?`<small><a href="#/${more}">Lihat semua</a></small>`:''}</h2>${body}</div></section>`;
+const empty = t => `<p class="meta">${t}</p>`;
+const portos = () => [...D.portfolio].reverse();
+
+function hero() {
+  const s = D.settings;
+  return `<div class="hero"><div class="w"><div><h1>${esc(s.nama)}</h1><div class="tag">${esc(s.tagline)}</div><p class="bio">${esc(s.bio)}</p><a class="btn" href="#/portofolio">Lihat portofolio</a><a class="btn o" href="#/blog">Baca blog</a></div><div class="foto">${s.foto?img(s.foto,s.nama):`<div class="ph">${esc((s.nama||'?')[0])}</div>`}</div></div></div>`;
+}
+const V = {
+  '': () => hero()
+    + sec('Portofolio', `<div class="grid">${portos().slice(0,3).map(pCard).join('')||empty('Belum ada proyek.')}</div>`, 'portofolio')
+    + sec('Tulisan terbaru', `<div class="grid">${D.posts.slice(0,3).map(bCard).join('')||empty('Belum ada tulisan.')}</div>`, 'blog'),
+  portofolio: () => {
+    const k = [...new Set(portos().map(x => x.kategori).filter(Boolean))];
+    return sec('Portofolio', `<div class="chips" id="chips"><button class="on" data-k="">Semua</button>${k.map(x=>`<button data-k="${esc(x)}">${esc(x)}</button>`).join('')}</div><div class="grid" id="pg">${portos().map(pCard).join('')||empty('Belum ada proyek.')}</div>`);
+  },
+  blog: () => sec('Blog', `<div class="grid">${D.posts.map(bCard).join('')||empty('Belum ada tulisan.')}</div>`),
+  galeri: () => sec('Galeri Kegiatan', `<div class="gal">${D.gallery.map(g=>`<figure data-src="${esc(safe(g.gambar))}">${img(g.gambar,g.judul)}<figcaption><strong>${esc(g.judul)}</strong><br><span class="meta">${esc(tgl(g.tanggal))}</span></figcaption></figure>`).join('')||empty('Belum ada foto.')}</div>`),
+  kontak: () => {
+    const s = D.settings, L = (u, t) => u ? `<li><a href="${esc(safe(u))}" target="_blank" rel="noopener">${t}</a></li>` : '';
+    return sec('Kontak', `<div class="two"><div><p>Kirim pesan untuk kolaborasi, undangan mengisi pelatihan, atau pertanyaan lain.</p><ul style="margin-top:16px;padding-left:1.2em">${L(s.email&&'mailto:'+s.email,esc(s.email))}${L(s.whatsapp&&'https://wa.me/'+String(s.whatsapp).replace(/\D/g,''),'WhatsApp')}${L(s.instagram,'Instagram')}${L(s.github,'GitHub')}${L(s.linkedin,'LinkedIn')}</ul></div>
+    <form id="cf"><p><label>Nama<input name="nama" required maxlength="100"></label></p><p><label>Email<input name="email" type="email" required maxlength="100"></label></p><p><label>Pesan<textarea name="pesan" rows="5" required maxlength="3000"></textarea></label></p><input class="hp" name="website" tabindex="-1" autocomplete="off" aria-hidden="true"><p id="cm" role="status"></p><button class="btn">Kirim pesan</button></form></div>`);
+  }
+};
+
+async function showPost(slugName) {
+  const r = API_URL ? await GET({action:'post', slug: slugName}).catch(() => ({})) : {};
+  if (!r.ok) return A.innerHTML = sec('Tulisan tidak ditemukan', '<a class="btn" href="#/blog">Kembali ke blog</a>');
+  const p = r.post; document.title = p.judul;
+  A.innerHTML = `<section><div class="w post"><a href="#/blog" class="meta">← Semua tulisan</a><h1>${esc(p.judul)}</h1><p class="meta">${esc(tgl(p.tanggal))}${p.kategori?' · '+esc(p.kategori):''}</p>${p.gambar?`<p style="margin:20px 0">${img(p.gambar,p.judul)}</p>`:''}<div class="isi">${md(p.isi)}</div></div></section>`;
+}
+
+async function route() {
+  const [p = '', s] = location.hash.slice(2).split('/');
+  document.querySelectorAll('#nav a').forEach(a => a.classList.toggle('on', a.getAttribute('href') == '#/' + p));
+  scrollTo(0, 0);
+  if (!D) {
+    A.innerHTML = '<div class="w"><p class="meta" style="padding:80px 0">Memuat…</p></div>';
+    D = API_URL ? await GET({action:'bootstrap'}).catch(() => null) : DEMO;
+    if (!D || D.ok === 0) { D = null; return A.innerHTML = '<div class="w"><p class="err" style="padding:80px 0">Data tidak bisa dimuat. Periksa API_URL dan deployment Apps Script.</p></div>'; }
+    $('#brand').textContent = D.settings.nama || 'Portofolio';
+    $('#foot').textContent = `© ${new Date().getFullYear()} ${D.settings.nama || ''}`;
+  }
+  document.title = (NAV.find(n => n[0] == p)?.[1] || 'Beranda') + ' | ' + (D.settings.nama || 'Portofolio');
+  if (p == 'blog' && s) return showPost(s);
+  A.innerHTML = (V[p] || V[''])();
+  if (p == 'kontak') $('#cf').onsubmit = async e => {
+    e.preventDefault(); const f = e.target, m = $('#cm'); m.className = ''; m.textContent = 'Mengirim…';
+    const r = await POST({action:'contact', ...Object.fromEntries(new FormData(f))}).catch(() => ({error:'Gagal terhubung ke server.'}));
+    m.className = r.ok ? 'ok' : 'err'; m.textContent = r.ok ? 'Pesan terkirim. Terima kasih.' : r.error; if (r.ok) f.reset();
+  };
+}
+$('#nav').innerHTML = NAV.map(n => `<a href="#/${n[0]}">${n[1]}</a>`).join('');
+A.addEventListener('click', e => {
+  const c = e.target.closest('#chips button'), f = e.target.closest('figure[data-src]');
+  if (c) { document.querySelectorAll('#chips button').forEach(b => b.classList.toggle('on', b == c)); $('#pg').innerHTML = portos().filter(x => !c.dataset.k || x.kategori == c.dataset.k).map(pCard).join(''); }
+  if (f) { $('#lb img').src = f.dataset.src; $('#lb').showModal(); }
+});
+$('#lb').onclick = () => $('#lb').close();
+
+/* ---------- CMS (/?page=cms) ---------- */
+const FD = {
+  Portofolio: [['judul','Judul'],['kategori','Kategori'],['tahun','Tahun'],['tautan','Tautan proyek (https://…)'],['gambar','Gambar','img'],['deskripsi','Deskripsi','area']],
+  Blog: [['judul','Judul'],['kategori','Kategori'],['tanggal','Tanggal','date'],['status','Status','sel'],['gambar','Gambar sampul','img'],['ringkasan','Ringkasan','area'],['isi','Isi tulisan (Markdown)','big']],
+  Galeri: [['judul','Judul kegiatan'],['tanggal','Tanggal','date'],['gambar','Foto','img'],['deskripsi','Keterangan','area']],
+  Profil: [['nama','Nama'],['tagline','Tagline'],['bio','Bio','area'],['foto','Foto profil','img'],['email','Email'],['whatsapp','WhatsApp (format 628…)'],['instagram','URL Instagram'],['github','URL GitHub'],['linkedin','URL LinkedIn']]
+};
+let tab = 'Portofolio', edit = null, R = [];
+const adm = async b => { const r = await POST({...b, token: sessionStorage.tk}).catch(() => ({error:'Gagal terhubung ke server.'})); if (r.expired) { sessionStorage.removeItem('tk'); cms(); } return r; };
+const field = ([k, l, t], v = '') => `<p><label>${l}${t=='area'||t=='big' ? `<textarea data-k="${k}" rows="${t=='big'?16:4}">${esc(v)}</textarea>`
+  : t=='sel' ? `<select data-k="${k}">${['Draft','Terbit'].map(o=>`<option${o==v?' selected':''}>${o}</option>`).join('')}</select>`
+  : t=='img' ? `<input data-k="${k}" value="${esc(v)}" placeholder="https://… atau unggah file"><input type="file" accept="image/*" data-up="${k}"><span class="meta"></span>`
+  : `<input data-k="${k}" ${t=='date'?'type="date"':''} value="${esc(v)}">`}</label></p>`;
+
+async function upload(file) {
+  const bmp = await createImageBitmap(file), s = Math.min(1, 1600 / Math.max(bmp.width, bmp.height)), c = document.createElement('canvas');
+  c.width = bmp.width * s; c.height = bmp.height * s; c.getContext('2d').drawImage(bmp, 0, 0, c.width, c.height);
+  return adm({action:'upload', name: file.name.replace(/\.\w+$/, '') + '.jpg', mime:'image/jpeg', data: c.toDataURL('image/jpeg', .85).split(',')[1]});
+}
+function cms() {
+  document.body.classList.add('cms'); document.title = 'CMS';
+  if (!sessionStorage.tk) {
+    A.innerHTML = `<div class="w" style="max-width:420px;padding-top:80px"><h2>Masuk CMS</h2><form id="lf"><p><label>Username<input name="u" required autocomplete="username"></label></p><p><label>Password<input name="p" type="password" required autocomplete="current-password"></label></p><p class="err" id="le"></p><button class="btn">Masuk</button></form></div>`;
+    $('#lf').onsubmit = async e => { e.preventDefault(); const f = e.target; const r = await POST({action:'login', username: f.u.value, password: f.p.value}).catch(() => ({error:'Gagal terhubung ke server.'})); if (r.ok) { sessionStorage.tk = r.token; cms(); } else $('#le').textContent = r.error; };
+    return;
+  }
+  A.innerHTML = `<div class="w"><div class="bar">${['Portofolio','Blog','Galeri','Pesan','Profil'].map(t=>`<button data-t="${t}" class="${t==tab?'on':''}">${t}</button>`).join('')}<span style="flex:1"></span><a href="./" class="meta">Lihat situs</a><button data-t="out">Keluar</button></div><div id="cb"></div></div>`;
+  A.querySelector('.bar').onclick = e => { const t = e.target.dataset.t; if (!t) return; if (t == 'out') { sessionStorage.removeItem('tk'); return cms(); } tab = t; edit = null; cms(); };
+  body();
+}
+async function body() {
+  const b = $('#cb'); b.textContent = 'Memuat…';
+  if (tab == 'Profil') {
+    const r = await adm({action:'settings'}); if (!r.ok) return b.innerHTML = `<p class="err">${esc(r.error)}</p>`;
+    b.innerHTML = `<form id="ef">${FD.Profil.map(f => field(f, r.settings[f[0]])).join('')}<p id="em" role="status"></p><button class="btn">Simpan profil</button></form>`;
+  } else if (edit) {
+    b.innerHTML = `<form id="ef"><h2>${edit.id ? 'Ubah' : 'Tambah'} ${tab}</h2>${FD[tab].map(f => field(f, edit[f[0]])).join('')}<p id="em" role="status"></p><button class="btn">Simpan</button><button type="button" class="btn o" id="bt">Batal</button></form>`;
+    $('#bt').onclick = () => { edit = null; body(); };
+  } else {
+    const r = await adm({action:'list', sheet: tab}); if (!r.ok) return b.innerHTML = `<p class="err">${esc(r.error)}</p>`;
+    R = r.rows;
+    b.innerHTML = `${tab == 'Pesan' ? '' : '<button class="btn" id="add">Tambah</button>'}<table>${R.map((x, i) => `<tr><td><strong>${esc(x.judul || x.nama)}</strong><br><span class="meta">${esc(tab == 'Pesan' ? x.email + ' — ' + x.pesan : [x.status, x.kategori].filter(Boolean).join(' · '))}</span></td><td style="white-space:nowrap;text-align:right">${tab == 'Pesan' ? '' : `<button class="btn s" data-e="${i}">Ubah</button>`}<button class="btn s o" data-d="${i}">Hapus</button></td></tr>`).join('') || '<tr><td>Belum ada data.</td></tr>'}</table>`;
+    if ($('#add')) $('#add').onclick = () => { edit = tab == 'Blog' ? {status:'Draft', tanggal: new Date().toISOString().slice(0,10)} : {}; body(); };
+    b.onclick = async e => {
+      const t = e.target;
+      if (t.dataset.e) { edit = R[t.dataset.e]; body(); }
+      if (t.dataset.d && confirm('Hapus data ini?')) { await adm({action:'delete', sheet: tab, id: R[t.dataset.d].id}); body(); }
+    };
+    return;
+  }
+  b.onchange = async e => {
+    const k = e.target.dataset.up; if (!k) return; const st = e.target.nextElementSibling; st.textContent = ' Mengunggah…';
+    const r = await upload(e.target.files[0]).catch(() => ({error:'Gagal memproses gambar'}));
+    if (r.ok) { b.querySelector(`[data-k="${k}"]`).value = r.url; st.textContent = ' Terunggah'; } else st.textContent = ' ' + r.error;
+  };
+  $('#ef').onsubmit = async e => {
+    e.preventDefault(); const o = {}; b.querySelectorAll('[data-k]').forEach(i => o[i.dataset.k] = i.value);
+    $('#em').textContent = 'Menyimpan…';
+    let r;
+    if (tab == 'Profil') r = await adm({action:'saveSettings', data: o});
+    else { const row = {...edit, ...o}; if (tab == 'Blog' && !row.slug) row.slug = slug(row.judul) + '-' + Math.random().toString(36).slice(2, 5); r = await adm({action:'save', sheet: tab, row}); }
+    if (r.ok) { edit = null; tab == 'Profil' ? ($('#em').textContent = 'Tersimpan.') : body(); } else $('#em').textContent = r.error;
+  };
+}
+
+if (new URLSearchParams(location.search).get('page') == 'cms') cms();
+else { addEventListener('hashchange', route); route(); }
+</script>
 </body>
 </html>
